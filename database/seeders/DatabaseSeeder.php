@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Category;
+use App\Models\post;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +17,54 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        User::create([
+            'name' => 'Mochammad Nizar Albaehaqi',
+            'email' => 'mochammadnizar10@gmail.com',
+            'password' => bcrypt('12345')
+        ]);
+
+        User::create([
+            'name' => 'Doddy Ferdiansyah',
+            'email' => 'doddy@gmail.com',
+            'password' => bcrypt('54321')
+        ]);
+
+        Category::create([
+            'name' => 'Web Programming',
+            'slug' => 'web-programming'
+        ]);
+
+        Category::create([
+            'name' => 'Personal',
+            'slug' => 'personal'
+        ]);
+
+        post::create([
+            'title' => 'Judul Pertama',
+            'slug' => 'judul-pertama',
+            'excerpt' => 'Lorem ipsum',
+            'body' => 'Lorem ipsum',
+            'category_id' => 1,
+            'user_id' => 1
+        ]);
+
+        post::create([
+            'title' => 'Judul Kedua',
+            'slug' => 'judul-kedua',
+            'excerpt' => 'Lorem ipsum',
+            'body' => 'Lorem ipsum',
+            'category_id' => 1,
+            'user_id' => 1
+        ]);
+
+        post::create([
+            'title' => 'Judul Ketiga',
+            'slug' => 'judul-ketiga',
+            'excerpt' => 'Lorem ipsum',
+            'body' => 'Lorem ipsum',
+            'category_id' => 2,
+            'user_id' => 2
+        ]);
     }
 }
